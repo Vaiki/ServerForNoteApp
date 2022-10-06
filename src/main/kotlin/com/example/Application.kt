@@ -1,8 +1,11 @@
 package com.example
 
+import com.example.auth.JwtService
+import com.example.auth.hash
 import io.ktor.server.application.*
 import com.example.plugins.*
 import com.example.repository.DatabaseFactory
+import com.example.repository.repo
 
 fun main(args: Array<String>): Unit =
     io.ktor.server.netty.EngineMain.main(args)
