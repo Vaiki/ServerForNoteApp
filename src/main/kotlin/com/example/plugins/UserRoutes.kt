@@ -5,14 +5,13 @@ import com.example.data.model.LoginRequest
 import com.example.data.model.RegisterRequest
 import com.example.data.model.SimpleResponse
 import com.example.data.model.UserInfo
-import com.example.repository.repo
+import com.example.repository.Repo
 import io.ktor.http.*
 import io.ktor.resources.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import kotlinx.serialization.Serializable
 
 const val API_VERSION ="/v1"
 const val USERS = "$API_VERSION/users"
@@ -28,7 +27,7 @@ class UserLoginRoute
 
 // регистрация пользователя. Добавление в бд и передача токена пользователю
 fun Route.UserRoutes(
-    db: repo,
+    db: Repo,
     jwtService: JwtService,
     hashFunction: (String)->String
     ){

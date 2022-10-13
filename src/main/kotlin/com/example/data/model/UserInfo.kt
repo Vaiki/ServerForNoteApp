@@ -1,10 +1,10 @@
 package com.example.data.model
 
-import kotlinx.serialization.Serializable
+import io.ktor.server.auth.*
 
-@Serializable
+
 data class UserInfo(
     val email: String,
     val password: String,
     val name: String
-)
+):Principal
