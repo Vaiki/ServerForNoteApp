@@ -20,7 +20,9 @@ application {
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
 }
-
+tasks.create("stage"){
+    dependsOn("installDist")
+}
 repositories {
     mavenCentral()
 }
@@ -34,6 +36,8 @@ dependencies {
     implementation("io.ktor:ktor-serialization-gson-jvm:$ktor_version")
     implementation("io.ktor:ktor-serialization-kotlinx-json-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-netty-jvm:$ktor_version")
+    implementation("io.ktor:ktor-server-resources:$ktor_version")
+
     implementation("ch.qos.logback:logback-classic:$logback_version")
 
     implementation ("org.jetbrains.exposed:exposed-core:$exposed_version")
